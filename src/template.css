@@ -38,12 +38,112 @@ img {
 }
 
 /* Actual CSS */
+
+/* Layout */
 body {
   min-height: 100vh;
+  font-size: 18px;
 }
 #grid-wrapper {
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-template-rows: 1fr;
   min-height: 100vh;
+}
+#sidebar {
+  display: flex;
+
+  flex-direction: column;
+  gap: 25px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#projects-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 25px;
+}
+
+/* styling look*/
+
+#sidebar {
+  padding: 25px 0;
+  border-right: 1px solid #c6c3cd;
+}
+header h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+nav button {
+  color: #c6c3cd;
+  background-color: transparent;
+  border: none;
+  width: 80%;
+  text-align: left;
+  border: 15px;
+  padding: 12px 16px 12px 10px;
+  border-radius: 15px;
+}
+nav button:hover {
+  cursor: pointer;
+  background-color: #5577ff;
+  color: #ffffff;
+}
+#projects-container {
+  border-top: 1px solid #c6c3cd;
+}
+#projects-container-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+}
+#projects-container-top h3 {
+  color: #c6c3cd;
+  background-color: transparent;
+  text-align: left;
+  width: 80%;
+  padding-left: 10px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+#projects-container-top button {
+  color: #82808f;
+  background-color: transparent;
+  border: none;
+  height: 40px;
+  border-radius: 15px;
+}
+#projects-container-top button:hover {
+  cursor: pointer;
+  background-color: #7b68ee;
+  width: 80%;
+  color: #ffffff;
+}
+#projects-container-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#projects-container-bottom button {
+  background-color: #5577ff7e;
+  border-radius: 15px;
+  border: none;
+  padding: 12px 16px;
+  color: #5577ff;
+}
+#projects-container-bottom button:hover {
+  background-color: #5577ff;
+
+  color: #ffffff;
+  cursor: pointer;
 }
