@@ -64,6 +64,11 @@ export function generateAllTodos(todosArr) {
     todoContainer.appendChild(rightTodoContainer);
     allWrapper.appendChild(todoContainer);
   }
-
+  const bottomWrapper = document.createElement("div");
+  bottomWrapper.classList.add("bottom-wrapper");
+  const createTodo = document.createElement("button");
+  createTodo.textContent = "Create ToDo";
+  bottomWrapper.appendChild(createTodo);
   mainPath.appendChild(allWrapper);
+  mainPath.appendChild(bottomWrapper);
 }
