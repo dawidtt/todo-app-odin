@@ -74,6 +74,9 @@ export function generateAllTodos(todosArr) {
 
   const notesContainer = document.createElement("div");
   notesContainer.classList.add("notes-container");
+  const notesHeading = document.createElement("h2");
+  notesHeading.textContent = "Notes";
+  notesContainer.appendChild(notesHeading);
 
   bottomWrapper.appendChild(createTodo);
   mainPath.appendChild(allWrapper);
