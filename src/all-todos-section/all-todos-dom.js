@@ -71,7 +71,12 @@ export function generateAllTodos(todosArr) {
   bottomWrapper.classList.add("all-bottom-wrapper");
   const createTodo = document.createElement("button");
   createTodo.textContent = "Create ToDo";
+
+  const notesContainer = document.createElement("div");
+  notesContainer.classList.add("notes-container");
+
   bottomWrapper.appendChild(createTodo);
   mainPath.appendChild(allWrapper);
   mainPath.appendChild(bottomWrapper);
+  mainPath.appendChild(notesContainer);
 }
