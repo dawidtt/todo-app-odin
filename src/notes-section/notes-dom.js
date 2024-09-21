@@ -15,21 +15,26 @@ export function renderNotesContainer() {
     const note = document.createElement("div");
     note.classList.add("note");
     const noteTop = document.createElement("div");
-    note.classList.add("note-top");
+    noteTop.classList.add("note-top");
     const noteTextContainer = document.createElement("div");
     noteTextContainer.classList.add("note-text-container");
     const noteHeading = document.createElement("h4");
     noteHeading.textContent = notesLogic.notesArray[i].title;
+    const svg = document.createElement("svg");
+    svg.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><circle cx="256" cy="256" r="48"/><circle cx="416" cy="256" r="48"/><circle cx="96" cy="256" r="48"/></svg>';
     const noteText = document.createElement("p");
     noteText.textContent = notesLogic.notesArray[i].description;
-    noteTextContainer.appendChild(noteHeading);
+
+    noteTop.appendChild(noteHeading);
+    noteTop.appendChild(svg);
     noteTextContainer.appendChild(noteText);
 
     note.appendChild(noteTop);
     note.appendChild(noteTextContainer);
-    notesWrapper.appendChild(note);
+    notesContainer.appendChild(note);
   }
-
+  notesWrapper.appendChild(notesContainer);
   mainPath.appendChild(notesWrapper);
 }
 renderNotesContainer();
