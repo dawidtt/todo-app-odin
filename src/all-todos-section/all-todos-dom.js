@@ -1,5 +1,6 @@
 import "./all-todos.css";
 import * as todoLogic from "./todo-logic.js";
+import * as notesDom from "../notes-section/notes-dom.js";
 let todosArr = todoLogic.createToDo();
 generateAllTodos(todosArr);
 
@@ -72,14 +73,7 @@ export function generateAllTodos(todosArr) {
   const createTodo = document.createElement("button");
   createTodo.textContent = "Create ToDo";
 
-  const notesContainer = document.createElement("div");
-  notesContainer.classList.add("notes-container");
-  const notesHeading = document.createElement("h2");
-  notesHeading.textContent = "Notes";
-  notesContainer.appendChild(notesHeading);
-
   bottomWrapper.appendChild(createTodo);
   mainPath.appendChild(allWrapper);
   mainPath.appendChild(bottomWrapper);
-  mainPath.appendChild(notesContainer);
 }

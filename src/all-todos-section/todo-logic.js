@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 export function createToDo() {
   let todosArray = [];
-  function createTodo(
+  function createTODoObject(
     title,
     description = "",
     dueDate = format(new Date(), "PPP"),
@@ -9,8 +9,8 @@ export function createToDo() {
   ) {
     return { title, description, dueDate, priority };
   }
-  todosArray.push(createTodo("Wyniesc smieci"));
-  todosArray.push(createTodo("haloo"));
+  todosArray.push(createTODoObject("Wyniesc smieci"));
+  todosArray.push(createTODoObject("haloo"));
 
   return todosArray;
 }
