@@ -159,9 +159,9 @@ body {
 }
 #grid-wrapper {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 1fr;
-  min-height: 100vh;
+  grid-template-columns: 200px minmax(0, 1fr);
+  grid-template-rows: 100vh;
+  height: 100vh;
 }
 #sidebar {
   display: flex;

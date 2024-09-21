@@ -35,6 +35,13 @@ export function renderNotesContainer() {
     notesContainer.appendChild(note);
   }
   notesWrapper.appendChild(notesContainer);
+
+  const addNoteContainer = document.createElement("div");
+  addNoteContainer.classList.add("add-note-container");
+  const addNoteBtn = document.createElement("button");
+  addNoteBtn.classList.add("add-note-btn");
+  addNoteContainer.appendChild(addNoteBtn);
+  notesWrapper.appendChild(addNoteContainer);
   mainPath.appendChild(notesWrapper);
 }
 renderNotesContainer();

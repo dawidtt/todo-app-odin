@@ -18,3 +18,4 @@ const importantNote = createNoteObject(
 
 addNewNote(casualNote);
 addNewNote(importantNote);
+addNewNote(importantNote);
