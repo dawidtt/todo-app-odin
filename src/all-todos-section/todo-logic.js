@@ -10,7 +10,12 @@ export function createToDo() {
     return { title, description, dueDate, priority };
   }
   todosArray.push(createTODoObject("Wyniesc smieci"));
-  todosArray.push(createTODoObject("haloo"));
+  todosArray.push(
+    createTODoObject(
+      "haloo",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat, reprehenderit, optio excepturi illum, est temporibus ullam quos perspiciatis recusandae aliquid in tempora soluta? Debitis excepturi modi quos voluptas libero!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat,"
+    )
+  );
 
   return todosArray;
 }

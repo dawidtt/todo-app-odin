@@ -1,6 +1,7 @@
 import "./all-todos.css";
 import * as todoLogic from "./todo-logic.js";
 import * as notesDom from "../notes-section/notes-dom.js";
+import * as expandTodo from "./expand-todo.js";
 let todosArr = todoLogic.createToDo();
 generateAllTodos(todosArr);
 
@@ -20,18 +21,23 @@ export function generateAllTodos(todosArr) {
 
     const leftTodoContainer = document.createElement("div");
     leftTodoContainer.classList.add("left-todo-container");
+    const doneCheckbox = document.createElement("input");
+    doneCheckbox.setAttribute("type", "checkbox");
     const titleHeading = document.createElement("h4");
     titleHeading.textContent = title;
-    const descriptionText = document.createElement("p");
-    descriptionText.textContent = description;
-    leftTodoContainer.appendChild(titleHeading);
-    leftTodoContainer.appendChild(descriptionText);
 
+    leftTodoContainer.appendChild(doneCheckbox);
+    leftTodoContainer.appendChild(titleHeading);
     const midTodoContainer = document.createElement("div");
     midTodoContainer.classList.add("mid-todo-container");
+
     let expand = document.createElement("svg");
     expand.innerHTML =
       '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/></svg>';
+    expand.addEventListener("click", () => expandTodo.openTodo(i));
+    if (!description) {
+      expand.style.display = "none";
+    }
     midTodoContainer.appendChild(expand);
 
     const rightTodoContainer = document.createElement("div");
@@ -63,9 +69,16 @@ export function generateAllTodos(todosArr) {
     rightTodoContainer.appendChild(edit);
     rightTodoContainer.appendChild(deleteBtn);
 
+    const descriptionContainer = document.createElement("div");
+    descriptionContainer.classList.add("description-container");
+    const descriptionText = document.createElement("p");
+    descriptionText.textContent = description;
+    descriptionContainer.appendChild(descriptionText);
+
     todoContainer.appendChild(leftTodoContainer);
-    todoContainer.appendChild(midTodoContainer);
     todoContainer.appendChild(rightTodoContainer);
+    todoContainer.appendChild(descriptionContainer);
+    todoContainer.appendChild(midTodoContainer);
     allWrapper.appendChild(todoContainer);
   }
   const bottomWrapper = document.createElement("div");

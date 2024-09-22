@@ -22,10 +22,11 @@ main .all-wrapper h2 {
   font-weight: 400;
 }
 .todo-container {
+  color: #56555c;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  flex-wrap: wrap;
   border-radius: 50px;
   background-color: #49cdf91c;
   margin-top: 25px;
@@ -34,12 +35,28 @@ main .all-wrapper h2 {
   -moz-box-shadow: 0px 8px 27px -18px rgba(66, 68, 90, 1);
   box-shadow: 0px 8px 27px -18px rgba(66, 68, 90, 1);
 }
+
 .left-todo-container {
-  width: 40%;
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+.left-todo-container h4 {
+  font-size: 1.3rem;
+}
+.left-todo-container input {
+  margin: 4px 0 0;
+  line-height: normal;
+  width: 20px;
+  height: 20px;
+}
+.left-todo-container input:hover {
+  cursor: pointer;
 }
 .mid-todo-container {
-  width: 20%;
-  height: 80px;
+  width: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -48,6 +65,15 @@ main .all-wrapper h2 {
 }
 .mid-todo-container svg {
   width: 20px;
+  transform: rotateX(0);
+  transition: transform 0.8s;
+}
+.mid-todo-container svg.open {
+  transform: rotateX(3.142rad);
+  transition: transform 0.8s;
+}
+.mid-todo-container svg:hover {
+  cursor: pointer;
 }
 .right-todo-container {
   width: 40%;
@@ -80,6 +106,22 @@ main .all-wrapper h2 {
 
 .delete-btn svg {
   color: #e51c1f;
+}
+.description-container {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.75s grid-template-rows ease;
+}
+.description-container:has(p.open) {
+  grid-template-rows: 1fr;
+}
+.description-container p {
+  color: #56555cb4;
+  overflow: hidden;
+}
+.description-container p.open {
+  display: block;
+  margin: 15px 0;
 }
 .all-bottom-wrapper {
   display: flex;
