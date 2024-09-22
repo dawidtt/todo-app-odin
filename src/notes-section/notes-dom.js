@@ -39,6 +39,7 @@ export function renderNotesContainer() {
   const addNoteContainer = document.createElement("div");
   addNoteContainer.classList.add("add-note-container");
   const addNoteBtn = document.createElement("button");
+  addNoteBtn.textContent = "Create Note";
   addNoteBtn.classList.add("add-note-btn");
   addNoteContainer.appendChild(addNoteBtn);
   notesWrapper.appendChild(addNoteContainer);
