@@ -56,8 +56,13 @@ main .all-wrapper h2 {
   align-items: center;
   gap: 40px;
 }
+
 .due-date-container p {
   color: #c6c3cd;
+  font-size: 0.95rem;
+}
+.priority-container {
+  font-size: 1.1rem;
 }
 .edit-btn,
 .delete-btn {
