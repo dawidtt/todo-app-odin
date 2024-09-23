@@ -222,6 +222,9 @@ nav button {
   display: flex;
   gap: 4px;
 }
+.nav-btn + .nav-btn {
+  margin-top: 12px;
+}
 nav button svg {
   width: 20px;
 }
@@ -288,4 +291,10 @@ nav button:hover {
 
   color: #ffffff;
   cursor: pointer;
+}
+
+.nav-section-checked {
+  cursor: pointer;
+  background-color: #5577ff;
+  color: #ffffff;
 }

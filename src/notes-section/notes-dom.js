@@ -45,4 +45,3 @@ export function renderNotesContainer() {
   notesWrapper.appendChild(addNoteContainer);
   mainPath.appendChild(notesWrapper);
 }
-renderNotesContainer();

@@ -2,10 +2,12 @@ import "./all-todos.css";
 import * as todoLogic from "./todo-logic.js";
 import * as notesDom from "../notes-section/notes-dom.js";
 import * as expandTodo from "./expand-todo.js";
+export { todosArr, generateAllTodos };
+
 let todosArr = todoLogic.createToDo();
 generateAllTodos(todosArr);
 
-export function generateAllTodos(todosArr) {
+function generateAllTodos(todosArr) {
   const mainPath = document.querySelector("main");
 
   const allWrapper = document.createElement("div");
@@ -89,4 +91,5 @@ export function generateAllTodos(todosArr) {
   bottomWrapper.appendChild(createTodo);
   mainPath.appendChild(allWrapper);
   mainPath.appendChild(bottomWrapper);
+  notesDom.renderNotesContainer();
 }

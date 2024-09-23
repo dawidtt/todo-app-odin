@@ -9,9 +9,7 @@ export function openTodo(numberInNodeArray) {
   const todosContainersArray = Array.from(todosContainersNodeList);
   const todosDescriptionArray = Array.from(todosDescriptionNodeList);
   const todosSwtichIconArray = Array.from(todosSwtichIconNodeList);
-  console.log(todosDescriptionArray);
 
-  console.log(todosSwtichIconArray);
   todosContainersArray[numberInNodeArray].classList.toggle("open");
   todosDescriptionArray[numberInNodeArray].classList.toggle("open");
   todosSwtichIconArray[numberInNodeArray].classList.toggle("open");
