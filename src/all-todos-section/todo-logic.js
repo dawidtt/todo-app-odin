@@ -18,6 +18,14 @@ export function createToDo() {
       "Medium-priority"
     )
   );
+  todosArray.push(
+    createTODoObject(
+      "hej haj helol",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat, reprehenderit, optio excepturi illum, est temporibus ullam quos perspiciatis recusandae aliquid in tempora soluta? Debitis excepturi modi quos voluptas libero!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat,",
+      format(new Date(), "PPP"),
+      "High-priority"
+    )
+  );
 
   return todosArray;
 }
