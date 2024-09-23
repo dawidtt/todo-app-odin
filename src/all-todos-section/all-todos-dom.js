@@ -2,6 +2,7 @@ import "./all-todos.css";
 import * as todoLogic from "./todo-logic.js";
 import * as notesDom from "../notes-section/notes-dom.js";
 import * as expandTodo from "./expand-todo.js";
+import { markComplete } from "./complete.js";
 export { todosArr, generateAllTodos };
 
 let todosArr = todoLogic.createToDo();
@@ -25,6 +26,7 @@ function generateAllTodos(todosArr) {
     leftTodoContainer.classList.add("left-todo-container");
     const doneCheckbox = document.createElement("input");
     doneCheckbox.setAttribute("type", "checkbox");
+    doneCheckbox.addEventListener("input", markComplete);
     const titleHeading = document.createElement("h4");
     titleHeading.textContent = title;
 

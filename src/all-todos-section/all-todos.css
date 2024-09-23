@@ -34,6 +34,8 @@ main .all-wrapper h2 {
   -webkit-box-shadow: 0px 8px 27px -18px rgba(66, 68, 90, 1);
   -moz-box-shadow: 0px 8px 27px -18px rgba(66, 68, 90, 1);
   box-shadow: 0px 8px 27px -18px rgba(66, 68, 90, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .left-todo-container {
@@ -47,10 +49,11 @@ main .all-wrapper h2 {
   font-size: 1.3rem;
 }
 .left-todo-container input {
-  margin: 4px 0 0;
   line-height: normal;
   width: 20px;
   height: 20px;
+  position: relative;
+  z-index: 5;
 }
 .left-todo-container input:hover {
   cursor: pointer;
@@ -87,8 +90,10 @@ main .all-wrapper h2 {
   color: #c6c3cd;
   font-size: 0.95rem;
 }
+
 .priority-container {
   font-size: 1.1rem;
+  color: #c6c3cd71;
 }
 .edit-btn,
 .delete-btn {
@@ -106,6 +111,10 @@ main .all-wrapper h2 {
 
 .delete-btn svg {
   color: #e51c1f;
+}
+.delete-btn {
+  position: relative;
+  z-index: 5;
 }
 .description-container {
   display: grid;
