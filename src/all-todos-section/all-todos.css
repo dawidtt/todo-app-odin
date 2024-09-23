@@ -37,7 +37,7 @@ main .all-wrapper h2 {
 }
 
 .left-todo-container {
-  width: 60%;
+  width: 50%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -66,17 +66,17 @@ main .all-wrapper h2 {
 .mid-todo-container svg {
   width: 20px;
   transform: rotateX(0);
-  transition: transform 0.8s;
+  transition: transform 0.6s;
 }
 .mid-todo-container svg.open {
   transform: rotateX(3.142rad);
-  transition: transform 0.8s;
+  transition: transform 0.6s;
 }
 .mid-todo-container svg:hover {
   cursor: pointer;
 }
 .right-todo-container {
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -110,7 +110,7 @@ main .all-wrapper h2 {
 .description-container {
   display: grid;
   grid-template-rows: 0fr;
-  transition: 0.75s grid-template-rows ease;
+  transition: 0.25s grid-template-rows ease;
 }
 .description-container:has(p.open) {
   grid-template-rows: 1fr;

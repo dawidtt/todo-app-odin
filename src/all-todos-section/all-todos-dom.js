@@ -56,6 +56,10 @@ function generateAllTodos(todosArr) {
     priorityContainer.classList.add("priority-container");
     const priorityText = document.createElement("p");
     priorityText.textContent = priority;
+    if (priority === "Low-priority") priorityText.style.color = "#00b884";
+    else if (priority === "Medium-priority")
+      priorityText.style.color = "#FFC800";
+    else if (priority === "High-priority") priorityText.style.color = "#f74092";
     priorityContainer.appendChild(priorityText);
 
     const edit = document.createElement("button");

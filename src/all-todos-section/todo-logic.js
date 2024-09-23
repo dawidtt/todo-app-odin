@@ -5,7 +5,7 @@ export function createToDo() {
     title,
     description = "",
     dueDate = format(new Date(), "PPP"),
-    priority = "easy"
+    priority = "Low-priority"
   ) {
     return { title, description, dueDate, priority };
   }
@@ -13,7 +13,9 @@ export function createToDo() {
   todosArray.push(
     createTODoObject(
       "haloo",
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat, reprehenderit, optio excepturi illum, est temporibus ullam quos perspiciatis recusandae aliquid in tempora soluta? Debitis excepturi modi quos voluptas libero!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat,"
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat, reprehenderit, optio excepturi illum, est temporibus ullam quos perspiciatis recusandae aliquid in tempora soluta? Debitis excepturi modi quos voluptas libero!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat,",
+      format(new Date(), "PPP"),
+      "Medium-priority"
     )
   );
 
