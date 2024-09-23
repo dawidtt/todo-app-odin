@@ -4,6 +4,7 @@ import * as notesDom from "../notes-section/notes-dom.js";
 import * as expandTodo from "./expand-todo.js";
 import { markComplete } from "./complete.js";
 import { deleteTodo } from "./delete-todo.js";
+import { openModal } from "./create-todo-modal.js";
 export { todosArr, generateAllTodos };
 
 let todosArr = todoLogic.createToDo();
@@ -97,6 +98,8 @@ function generateAllTodos(todosArr) {
   bottomWrapper.classList.add("all-bottom-wrapper");
   const createTodo = document.createElement("button");
   createTodo.textContent = "Create ToDo";
+  createTodo.classList.add("create-todo");
+  createTodo.addEventListener("click", openModal);
 
   bottomWrapper.appendChild(createTodo);
   mainPath.appendChild(allWrapper);
