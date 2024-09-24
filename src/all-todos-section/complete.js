@@ -1,4 +1,5 @@
 import { openTodo } from "./expand-todo";
+import "./complete.css";
 
 export { markComplete };
 
@@ -8,6 +9,7 @@ function markComplete(e) {
     e.target.parentNode.parentNode.removeChild(
       e.target.parentNode.parentNode.lastChild
     );
+    e.currentTarget.nextSibling.classList.remove("completed");
   } else {
     const currentTodoContainer = e.target.parentNode.parentNode;
     const completeContainer = document.createElement("div");
@@ -17,13 +19,7 @@ function markComplete(e) {
     }
 
     completeContainer.classList.add("completed-container");
-    completeContainer.style.height = "100%";
-    completeContainer.style.width = "100%";
-    completeContainer.style.position = "absolute";
-    completeContainer.style.backgroundColor = "#c6c3cd71";
-    completeContainer.style.left = "0";
-
-    completeContainer.style.top = "0";
+    e.currentTarget.nextSibling.classList.add("completed");
 
     currentTodoContainer.appendChild(completeContainer);
   }

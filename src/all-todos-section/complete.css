@@ -1,0 +1,11 @@
+.completed-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #c6c3cd71;
+  left: 0;
+  top: 0;
+}
+.left-todo-container h4.completed {
+  text-decoration: line-through;
+}
