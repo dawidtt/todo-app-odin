@@ -101,7 +101,7 @@ function handleCreateTodoSubmit(dialog, main) {
         createToDo(
           titleValue,
           descriptionValue,
-          format(formattedDueDate, "PPP"),
+          formattedDueDate,
           priorityValue
         )
       );
