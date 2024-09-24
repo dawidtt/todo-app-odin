@@ -30,6 +30,7 @@ main .all-wrapper h2 {
   flex-grow: 1;
   height: 500px;
   padding: 20px;
+  width: 100%;
 }
 .todo-container {
   color: #56555c;
@@ -45,6 +46,7 @@ main .all-wrapper h2 {
   box-shadow: 0px 8px 27px -18px rgba(66, 68, 90, 1);
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 .todo-container + .todo-container {
   margin-top: 25px;

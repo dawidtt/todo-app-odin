@@ -1,6 +1,6 @@
 dialog {
   border-radius: 15px;
-  border: 2px solid #fd71b088;
+  border: none;
 }
 dialog form > div {
   display: flex;
@@ -9,12 +9,77 @@ dialog form > div {
 dialog form > div + div {
   margin: 20px 0;
 }
+
 dialog fieldset {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  border-radius: 5px;
+  border: 1px solid #c6c3cd;
+}
+dialog fieldset legend {
+  font-size: 1.05rem;
+}
+dialog label {
+  margin-bottom: 5px;
+  font-size: 1.05rem;
+}
+dialog input,
+dialog textarea {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #888396;
+}
+dialog input:focus,
+dialog textarea:focus {
+  outline: 2px solid #f74092;
+  border: 1px solid transparent;
+}
+dialog input[type="radio"]:focus {
+  outline: none;
+}
+fieldset label {
+  padding-left: 8px;
+}
+dialog input[type="radio"]:hover,
+fieldset label:hover {
+  cursor: pointer;
+}
+
+.label-low-priority {
+  color: #00b884;
+}
+.label-medium-priority {
+  color: #ffc800;
+}
+.label-high-priority {
+  color: #f71a7d;
 }
 #create-todo-submit-container {
   flex-direction: row;
   justify-content: space-between;
+}
+#create-todo-submit-container button {
+  border-radius: 5px;
+  padding: 10px 24px;
+  transition: all 0.15s;
+  border: none;
+}
+
+#create-todo-submit-container button:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+#create-todo-cancel-btn {
+  background-color: #e6e5e5;
+}
+#create-todo-cancel-btn:hover {
+  background-color: #bbbbbb;
+}
+#create-todo-submit-input {
+  background-color: #fd71b088;
+  color: #f71a7d;
+}
+#create-todo-submit-input:hover {
+  background-color: #f74092;
 }

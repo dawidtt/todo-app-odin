@@ -9,11 +9,11 @@ function createTodoModal() {
   dialog.innerHTML = `<form method="dialog">
   <div class="create-todo-title">
     <label for="create-todo-title-input">Title:</label>
-    <input type="text" id="create-todo-title-input" required/>
+    <input type="text" id="create-todo-title-input" required autocomplete="off" placeholder="Title of ToDo"/>
   </div>
   <div class="create-todo-description">
     <label for="create-todo-description-input">Description:</label>
-    <textarea id="create-todo-description-input" cols="20" rows="5"></textarea>
+    <textarea id="create-todo-description-input" cols="20" rows="5" placeholder="Write your description..."></textarea>
   </div>
   <div class="create-todo-date">
     <label for="create-todo-date-input">Due Date:</label>
@@ -23,7 +23,7 @@ function createTodoModal() {
     <fieldset>
       <legend>Priority</legend>
       <div><input type="radio" id="create-todo-low-priority-input" name="priority" value="Low-priority" checked/>
-    <label for="create-todo-low-priority-input">Low-priority</label></div>
+    <label class="label-low-priority" for="create-todo-low-priority-input">Low-priority</label></div>
     
     <div> <input
       type="radio"
@@ -31,9 +31,9 @@ function createTodoModal() {
       name="priority"
       value="Medium-priority"
     />
-    <label for="create-todo-medium-priority-input">Medium-priority</label></div>
+    <label class="label-medium-priority" for="create-todo-medium-priority-input">Medium-priority</label></div>
     <div><input type="radio" id="create-todo-high-priority-input" name="priority" value="High-priority" />
-    <label for="create-todo-high-priority-input">High-priority</label></div>
+    <label class="label-high-priority" for="create-todo-high-priority-input">High-priority</label></div>
     
    
     </fieldset>
@@ -48,8 +48,17 @@ function createTodoModal() {
 `;
   return dialog;
 }
-function setDefaultDateValue() {
+function setDefaultAndMinDateValue() {
   const dateInput = document.querySelector("#create-todo-date-input");
+  const today = new Date();
+  const dd = format(today, "dd");
+  const mm = format(today, "MM");
+  const yyyy = format(today, "yyyy");
+  const fullToday = `${yyyy}-${mm}-${dd}`;
+
+  console.log(fullToday);
+  dateInput.setAttribute("min", fullToday);
+
   dateInput.valueAsDate = new Date();
 }
 function openModal() {
@@ -58,7 +67,7 @@ function openModal() {
   mainPath.appendChild(newDialog);
   handleCreateTodoSubmit(newDialog, mainPath);
   newDialog.showModal();
-  setDefaultDateValue();
+  setDefaultAndMinDateValue();
 }
 function handleCreateTodoSubmit(dialog, main) {
   const cancelSubmit = document.querySelector("#create-todo-cancel-btn");
