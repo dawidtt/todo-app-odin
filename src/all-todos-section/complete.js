@@ -1,3 +1,5 @@
+import { openTodo } from "./expand-todo";
+
 export { markComplete };
 
 function markComplete(e) {
@@ -9,6 +11,11 @@ function markComplete(e) {
   } else {
     const currentTodoContainer = e.target.parentNode.parentNode;
     const completeContainer = document.createElement("div");
+    if (currentTodoContainer.classList.contains("open")) {
+      const positionNum = currentTodoContainer.getAttribute("position");
+      openTodo(positionNum);
+    }
+
     completeContainer.classList.add("completed-container");
     completeContainer.style.height = "100%";
     completeContainer.style.width = "100%";
