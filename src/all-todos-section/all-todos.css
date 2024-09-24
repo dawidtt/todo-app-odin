@@ -8,6 +8,10 @@ main {
   grid-row: 1 / 2;
   grid-column: 1 / 2;
   padding: 35px 25px 25px 25px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
 }
 .all-bottom-wrapper {
   grid-row: 2 / 3;
@@ -21,6 +25,12 @@ main .all-wrapper h2 {
   margin-bottom: 50px;
   font-weight: 400;
 }
+.todos-container {
+  overflow-y: auto;
+  flex-grow: 1;
+  height: 500px;
+  padding: 20px;
+}
 .todo-container {
   color: #56555c;
   display: flex;
@@ -29,7 +39,6 @@ main .all-wrapper h2 {
   flex-wrap: wrap;
   border-radius: 50px;
   background-color: #49cdf91c;
-  margin-top: 25px;
   padding: 20px;
   -webkit-box-shadow: 0px 8px 27px -18px rgba(66, 68, 90, 1);
   -moz-box-shadow: 0px 8px 27px -18px rgba(66, 68, 90, 1);
@@ -37,7 +46,9 @@ main .all-wrapper h2 {
   position: relative;
   overflow: hidden;
 }
-
+.todo-container + .todo-container {
+  margin-top: 25px;
+}
 .left-todo-container {
   width: 50%;
   display: flex;
@@ -83,7 +94,7 @@ main .all-wrapper h2 {
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
 }
 
 .due-date-container p {

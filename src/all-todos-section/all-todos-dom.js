@@ -1,16 +1,15 @@
 import "./all-todos.css";
-import * as todoLogic from "./todo-logic.js";
+import { todosArray } from "./todo-logic.js";
 import * as notesDom from "../notes-section/notes-dom.js";
 import * as expandTodo from "./expand-todo.js";
 import { markComplete } from "./complete.js";
 import { deleteTodo } from "./delete-todo.js";
 import { openModal } from "./create-todo-modal.js";
-export { todosArr, generateAllTodos };
+export { generateAllTodos };
 
-let todosArr = todoLogic.createToDo();
-generateAllTodos(todosArr);
+generateAllTodos(todosArray);
 
-function generateAllTodos(todosArr) {
+function generateAllTodos(todosArray) {
   const mainPath = document.querySelector("main");
 
   const allWrapper = document.createElement("div");
@@ -18,9 +17,11 @@ function generateAllTodos(todosArr) {
   const allHeading = document.createElement("h2");
   allHeading.textContent = "All ToDos";
   allWrapper.appendChild(allHeading);
+  const todosContainer = document.createElement("div");
+  todosContainer.classList.add("todos-container");
 
-  for (let i = 0; i < todosArr.length; i++) {
-    const { title, description, dueDate, priority } = todosArr[i];
+  for (let i = 0; i < todosArray.length; i++) {
+    const { title, description, dueDate, priority } = todosArray[i];
     const todoContainer = document.createElement("div");
     todoContainer.classList.add("todo-container");
     todoContainer.setAttribute("position", i);
@@ -92,8 +93,10 @@ function generateAllTodos(todosArr) {
     todoContainer.appendChild(rightTodoContainer);
     todoContainer.appendChild(descriptionContainer);
     todoContainer.appendChild(midTodoContainer);
-    allWrapper.appendChild(todoContainer);
+
+    todosContainer.appendChild(todoContainer);
   }
+  allWrapper.appendChild(todosContainer);
   const bottomWrapper = document.createElement("div");
   bottomWrapper.classList.add("all-bottom-wrapper");
   const createTodo = document.createElement("button");
