@@ -1,6 +1,6 @@
 import { generateAllTodos } from "./all-todos-dom";
 import "./create-todo-modal.css";
-import { createToDo, todosArray } from "./todo-logic";
+import { createToDo, todosArray } from "../todo-container/todo-logic";
 export { openModal };
 import { format } from "date-fns";
 function createTodoModal() {
@@ -56,7 +56,6 @@ function setDefaultAndMinDateValue() {
   const yyyy = format(today, "yyyy");
   const fullToday = `${yyyy}-${mm}-${dd}`;
 
-  console.log(fullToday);
   dateInput.setAttribute("min", fullToday);
 
   dateInput.valueAsDate = new Date();

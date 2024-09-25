@@ -1,4 +1,4 @@
-import { generateAllTodos } from "./all-todos-dom";
+import { generateAllTodos } from "../all-todos-section/all-todos-dom";
 import { todosArray } from "./todo-logic";
 import { format } from "date-fns";
 import "./edit-todo-modal.css";

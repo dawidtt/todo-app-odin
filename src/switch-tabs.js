@@ -1,5 +1,5 @@
 import { generateAllTodos } from "./all-todos-section/all-todos-dom";
-import { todosArray } from "./all-todos-section/todo-logic";
+import { todosArray } from "./todo-container/todo-logic";
 function switchTabs(e) {
   const mainPath = document.querySelector("main");
   const navBtnsNodeList = document.querySelectorAll("nav button");

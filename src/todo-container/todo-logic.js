@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 export { todosArray, createToDo };
 let todosArray = [];
 
@@ -6,9 +5,10 @@ function createToDo(
   title,
   description = "",
   dueDate = new Date(),
-  priority = "Low-priority"
+  priority = "Low-priority",
+  completed = false
 ) {
-  return { title, description, dueDate, priority };
+  return { title, description, dueDate, priority, completed };
 }
 
 todosArray.push(createToDo("Wyniesc smieci"));

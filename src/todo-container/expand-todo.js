@@ -1,4 +1,4 @@
-export function openTodo(numberInNodeArray) {
+export function expandTodo(numberInNodeArray) {
   const todosContainersNodeList = document.querySelectorAll(".todo-container");
   const todosDescriptionNodeList = document.querySelectorAll(
     ".description-container p"
