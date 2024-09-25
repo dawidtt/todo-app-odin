@@ -1,4 +1,5 @@
 import { generateAllTodos } from "./all-todos-section/all-todos-dom";
+import { generateTodayTodos } from "./today-section/today-dom";
 import { todosArray } from "./todo-container/todo-logic";
 function switchTabs(e) {
   const mainPath = document.querySelector("main");
@@ -17,4 +18,5 @@ all.classList.add("nav-section-checked");
 all.addEventListener("click", switchTabs);
 all.addEventListener("click", () => generateAllTodos(todosArray));
 today.addEventListener("click", switchTabs);
+today.addEventListener("click", () => generateTodayTodos(todosArray));
 calendar.addEventListener("click", switchTabs);

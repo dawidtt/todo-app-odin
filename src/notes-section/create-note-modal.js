@@ -32,6 +32,8 @@ function createNoteModal() {
 
 function openNoteModal() {
   const mainPath = document.querySelector("main");
+
+  const notesPath = document.querySelector(".notes-wrapper");
   const newDialog = createNoteModal();
   mainPath.appendChild(newDialog);
   handleCreatenoteSubmit(newDialog, mainPath);
@@ -59,8 +61,9 @@ function handleCreatenoteSubmit(dialog, main) {
       dialog.close();
       main.removeChild(dialog);
       const mainPath = document.querySelector("main");
-      mainPath.innerHTML = "";
-      generateAllTodos(todosArray);
+      const notesPath = document.querySelector(".notes-wrapper");
+      notesPath.innerHTML = "";
+      renderNotesContainer();
     }
   });
 }
