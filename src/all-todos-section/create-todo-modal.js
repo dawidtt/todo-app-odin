@@ -3,6 +3,7 @@ import "./create-todo-modal.css";
 import { createToDo, todosArray } from "../todo-container/todo-logic";
 export { openModal };
 import { format } from "date-fns";
+import { generateTodayTodos } from "../today-section/today-dom";
 function createTodoModal() {
   const dialog = document.createElement("dialog");
   dialog.classList.add("create-todo-dialog");
@@ -109,7 +110,14 @@ function handleCreateTodoSubmit(dialog, main) {
       main.removeChild(dialog);
       const mainPath = document.querySelector("main");
       mainPath.innerHTML = "";
-      generateAllTodos(todosArray);
+      const allTodoTabPath = document.querySelector("#all-btn");
+      const todayTodoTabPath = document.querySelector("#today-btn");
+
+      if (allTodoTabPath.classList.contains("nav-section-checked")) {
+        generateAllTodos(todosArray);
+      } else if (todayTodoTabPath.classList.contains("nav-section-checked")) {
+        generateTodayTodos(todosArray);
+      }
     }
   });
 }

@@ -39,7 +39,6 @@ function generateTodayTodos(todosArray) {
   const todosContainerArray = Array.from(
     document.querySelectorAll(".todo-container")
   );
-  console.log(todosContainerArray);
   for (let i = 0; i < todosContainerArray.length; i++) {
     const currentPosition = todosContainerArray[i].getAttribute("position");
     if (todosArray[currentPosition].completed) markComplete(currentPosition);
