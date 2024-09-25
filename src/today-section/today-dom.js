@@ -36,8 +36,13 @@ function generateTodayTodos(todosArray) {
   bottomWrapper.appendChild(createTodo);
   mainPath.appendChild(allWrapper);
   mainPath.appendChild(bottomWrapper);
-  for (let i = 0; i < todosArray.length; i++) {
-    if (todosArray[i].completed) markComplete(i);
+  const todosContainerArray = Array.from(
+    document.querySelectorAll(".todo-container")
+  );
+  console.log(todosContainerArray);
+  for (let i = 0; i < todosContainerArray.length; i++) {
+    const currentPosition = todosContainerArray[i].getAttribute("position");
+    if (todosArray[currentPosition].completed) markComplete(currentPosition);
   }
   notesDom.renderNotesContainer();
 }
