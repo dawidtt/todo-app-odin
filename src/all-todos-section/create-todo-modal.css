@@ -72,6 +72,7 @@ fieldset label:hover {
 }
 #create-todo-cancel-btn {
   background-color: #e6e5e5;
+  color: #56555c;
 }
 #create-todo-cancel-btn:hover {
   background-color: #bbbbbb;

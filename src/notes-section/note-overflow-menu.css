@@ -1,0 +1,38 @@
+.note .note-top > div {
+  position: relative;
+}
+.note-menu-container {
+  position: absolute;
+  right: -10px;
+  width: 160px;
+}
+.note-edit-container,
+.note-delete-container {
+  display: flex;
+}
+.note-delete-container {
+  margin-top: 5px;
+}
+.note-delete-container svg {
+  color: #ffffff;
+}
+.note-delete-container button {
+  background-color: #ff0000;
+}
+.note-delete-container button {
+  color: #ffffff;
+  font-weight: 500;
+}
+.note-menu-container button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.02rem;
+  border: none;
+  border-radius: 5px;
+}
+.note-menu-container button:hover {
+  cursor: pointer;
+}

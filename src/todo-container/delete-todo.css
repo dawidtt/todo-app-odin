@@ -12,7 +12,7 @@
   color: #56555c;
 }
 .delete-confirm p {
-  width: 40ch;
+  width: 35ch;
   font-size: 1.05rem;
   color: #9896a3;
 }
@@ -30,7 +30,7 @@
   opacity: 1;
 }
 #delete-confirm-btn {
-  background-color: red;
+  background-color: #ff0000;
   color: #ffffff;
 }
 #delete-cancel-btn {
