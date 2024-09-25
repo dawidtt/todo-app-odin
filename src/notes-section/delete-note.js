@@ -1,20 +1,25 @@
 import { generateAllTodos } from "../all-todos-section/all-todos-dom";
-import { todosArray } from "./todo-logic";
-import "./delete-todo.css";
+import { todosArray } from "../todo-container/todo-logic";
+import "./delete-note.css";
+import { renderNotesContainer } from "./notes-dom";
+import { notesArray } from "./notes-logic";
 
-export { deleteTodo };
+export { deleteNote };
 
-function deleteTodo(e) {
-  const deleteButtonPosition = e.currentTarget.getAttribute("position");
+function deleteNote(e) {
+  const deleteButtonPosition =
+    e.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute(
+      "position"
+    );
   const mainPath = document.querySelector("main");
 
   const newDialog = document.createElement("dialog");
   newDialog.classList.add("delete-confirm");
   newDialog.innerHTML = `
   <div id="confirm-text">
-    <h4>Delete Todo</h4>
+    <h4>Delete Note</h4>
     <p>
-      Are you sure you want to delete this todo? This action cannot be undone
+      Are you sure you want to delete this note? This action cannot be undone
     </p>
   </div>
   <button id="delete-confirm-btn">Delete</button>
@@ -31,7 +36,7 @@ function deleteTodo(e) {
   });
   deleteConfirmBtn.addEventListener("click", () => {
     e.preventDefault();
-    todosArray.splice(deleteButtonPosition, 1);
+    notesArray.splice(deleteButtonPosition, 1);
 
     newDialog.close();
     mainPath.removeChild(newDialog);
@@ -40,5 +45,5 @@ function deleteTodo(e) {
   });
 
   // mainPath.innerHTML = "";
-  // generateAllTodos(todosArray);
+  // generateAllnotes(notesArray);
 }
