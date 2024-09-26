@@ -1,6 +1,7 @@
 import { generateAllTodos } from "../all-todos-section/all-todos-dom";
 import { todosArray } from "./todo-logic";
 import "./delete-todo.css";
+import { general } from "../projects-modules/project-logic";
 
 export { deleteTodo };
 
@@ -31,6 +32,7 @@ function deleteTodo(e) {
   });
   deleteConfirmBtn.addEventListener("click", () => {
     e.preventDefault();
+    general.deleteTodoFromProject(todosArray[deleteButtonPosition]);
     todosArray.splice(deleteButtonPosition, 1);
 
     newDialog.close();

@@ -4,6 +4,7 @@ import { createToDo, todosArray } from "../todo-container/todo-logic";
 export { openModal };
 import { format } from "date-fns";
 import { generateTodayTodos } from "../today-section/today-dom";
+import { general } from "../projects-modules/project-logic";
 function createTodoModal() {
   const dialog = document.createElement("dialog");
   dialog.classList.add("create-todo-dialog");
@@ -96,15 +97,14 @@ function handleCreateTodoSubmit(dialog, main) {
     }
     if (titleValue !== "") {
       e.preventDefault();
-
-      todosArray.push(
-        createToDo(
-          titleValue,
-          descriptionValue,
-          formattedDueDate,
-          priorityValue
-        )
+      const newTodo = createToDo(
+        titleValue,
+        descriptionValue,
+        formattedDueDate,
+        priorityValue
       );
+      todosArray.push(newTodo);
+      general.addTodoToProject(newTodo);
 
       dialog.close();
       main.removeChild(dialog);

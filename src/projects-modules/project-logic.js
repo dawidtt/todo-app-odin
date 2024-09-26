@@ -1,4 +1,6 @@
-export { projects, createProjectsArray, createProject };
+import { createToDo } from "../todo-container/todo-logic";
+
+export { projects, general, createProjectsArray, createProject };
 
 function createProjectsArray() {
   const projectsArray = [];
@@ -10,6 +12,7 @@ function createProjectsArray() {
     projectsArray.splice(indexOfProject, 1);
   };
   const getArray = () => projectsArray;
+
   return { addProject, deleteProject, getArray };
 }
 
@@ -21,10 +24,17 @@ function createProject(projectName, todos = []) {
     const indexOfTodo = todos.indexOf(todo);
     todos.splice(indexOfTodo, 1);
   };
-  return { projectName, todos, addTodoToProject, deleteTodoFromProject };
+  const getTodosArray = () => todos;
+  return {
+    projectName,
+    getTodosArray,
+    addTodoToProject,
+    deleteTodoFromProject,
+  };
 }
-const newProject = createProject("Bardzo wazny projekt");
-console.log(newProject);
+const general = createProject("General");
+console.log(general);
 const projects = createProjectsArray();
-projects.addProject(newProject);
-console.log(projects.getArray());
+projects.addProject(general);
+// general.addTodoToProject(createToDo("cos"));
+// console.log(projects.getArray());
