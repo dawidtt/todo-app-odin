@@ -1,3 +1,4 @@
+import { markComplete } from "../todo-container/complete.js";
 import { generateTodoContainer } from "../todo-container/generate-todo-dom.js";
 import { projects } from "./project-logic";
 export * from "./project-dom.js";
@@ -27,6 +28,14 @@ function showSpecificProject(project) {
     const todoContainer = generateTodoContainer(todosArray[i], i);
     todosContainer.appendChild(todoContainer);
   }
+
   allWraperPath.appendChild(projectHeading);
   allWraperPath.appendChild(todosContainer);
+  const todosContainerArray = Array.from(
+    document.querySelectorAll(".todo-container")
+  );
+  for (let i = 0; i < todosContainerArray.length; i++) {
+    const currentPosition = todosContainerArray[i].getAttribute("position");
+    if (todosArray[currentPosition].completed) markComplete(currentPosition);
+  }
 }
