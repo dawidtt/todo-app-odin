@@ -14,7 +14,7 @@ function generateTodayTodos(todosArray) {
   const allWrapper = document.createElement("div");
   allWrapper.classList.add("all-wrapper");
   const allHeading = document.createElement("h2");
-  allHeading.textContent = "All ToDos";
+  allHeading.textContent = "Todays ToDos";
   allWrapper.appendChild(allHeading);
   const todosContainer = document.createElement("div");
   todosContainer.classList.add("todos-container");
