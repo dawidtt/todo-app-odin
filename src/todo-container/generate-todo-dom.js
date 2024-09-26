@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { todosArray } from "./todo-logic.js";
 export { generateTodoContainer };
 function generateTodoContainer(todoObject, position) {
-  const { title, description, dueDate, priority, completed, project } =
+  const { title, description, dueDate, priority, project, completed } =
     todoObject;
   const todoContainer = document.createElement("div");
   todoContainer.classList.add("todo-container");

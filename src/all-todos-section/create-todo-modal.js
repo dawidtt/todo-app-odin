@@ -4,7 +4,11 @@ import { createToDo, todosArray } from "../todo-container/todo-logic";
 export { openModal };
 import { format } from "date-fns";
 import { generateTodayTodos } from "../today-section/today-dom";
-import { general } from "../projects-modules/project-logic";
+import {
+  general,
+  projects,
+  createProject,
+} from "../projects-modules/project-logic";
 function createTodoModal() {
   const dialog = document.createElement("dialog");
   dialog.classList.add("create-todo-dialog");
@@ -41,6 +45,13 @@ function createTodoModal() {
     </fieldset>
     
   </div>
+
+    <div class="create-todo-project"><label for="project-select">Project for Todo:</label>
+
+<select name="projects" id="project-select">
+  
+</select>
+    </div>
   <div id="create-todo-submit-container">
     <button id="create-todo-cancel-btn" formmethod="dialog" value="cancel" >Cancel</button>
     <button id="create-todo-submit-input"  >Create</button>
@@ -62,6 +73,17 @@ function setDefaultAndMinDateValue() {
 
   dateInput.valueAsDate = new Date();
 }
+function createSelect() {
+  const projectsArray = projects.getArray();
+  const select = document.querySelector("#project-select");
+  for (let i = 0; i < projectsArray.length; i++) {
+    const option = document.createElement("option");
+    option.value = projectsArray[i].projectName;
+    option.setAttribute("position", i);
+    option.textContent = projectsArray[i].projectName;
+    select.appendChild(option);
+  }
+}
 function openModal() {
   const mainPath = document.querySelector("main");
   const newDialog = createTodoModal();
@@ -69,7 +91,9 @@ function openModal() {
   handleCreateTodoSubmit(newDialog, mainPath);
   newDialog.showModal();
   setDefaultAndMinDateValue();
+  createSelect();
 }
+
 function handleCreateTodoSubmit(dialog, main) {
   const cancelSubmit = document.querySelector("#create-todo-cancel-btn");
   const createSubmit = document.querySelector("#create-todo-submit-input");
@@ -95,17 +119,23 @@ function handleCreateTodoSubmit(dialog, main) {
         priorityValue = radio.value;
       }
     }
+    const projectValue = document.querySelector("#project-select").value;
+    const projectPosition = document
+      .querySelector("#project-select option:checked")
+      .getAttribute("position");
+
     if (titleValue !== "") {
       e.preventDefault();
       const newTodo = createToDo(
         titleValue,
         descriptionValue,
         formattedDueDate,
-        priorityValue
+        priorityValue,
+        projectValue
       );
       todosArray.push(newTodo);
-      general.addTodoToProject(newTodo);
 
+      projects.getArray()[projectPosition].addTodoToProject(newTodo);
       dialog.close();
       main.removeChild(dialog);
       const mainPath = document.querySelector("main");
