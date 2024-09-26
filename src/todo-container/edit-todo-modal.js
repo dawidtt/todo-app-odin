@@ -18,8 +18,8 @@ function editTodo(e) {
     "#edit-todo-description-input"
   );
   descriptionInput.value = description;
+  console.log(descriptionInput.value);
 
-  descriptionInput.value = title;
   const lowPriorityRadio = document.querySelector(
     "#edit-todo-low-priority-input"
   );
