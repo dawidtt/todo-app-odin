@@ -8,9 +8,10 @@ function createToDo(
   description = "",
   dueDate = new Date(),
   priority = "Low-priority",
-  completed = false
+  completed = false,
+  project = "General"
 ) {
-  return { title, description, dueDate, priority, completed };
+  return { title, description, dueDate, priority, completed, project };
 }
 const exampleTodo = createToDo(
   "haloo",

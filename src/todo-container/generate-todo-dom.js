@@ -6,10 +6,12 @@ import { format } from "date-fns";
 import { todosArray } from "./todo-logic.js";
 export { generateTodoContainer };
 function generateTodoContainer(todoObject, position) {
-  const { title, description, dueDate, priority, completed } = todoObject;
+  const { title, description, dueDate, priority, completed, project } =
+    todoObject;
   const todoContainer = document.createElement("div");
   todoContainer.classList.add("todo-container");
   todoContainer.setAttribute("position", position);
+  todoContainer.setAttribute("project", project);
   const leftTodoContainer = document.createElement("div");
   leftTodoContainer.classList.add("left-todo-container");
   const doneCheckbox = document.createElement("input");
