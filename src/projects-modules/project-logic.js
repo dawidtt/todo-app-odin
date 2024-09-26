@@ -1,4 +1,5 @@
-export { projects, createProject } from "./project-logic.js";
+export { projects, createProjectsArray, createProject };
+
 function createProjectsArray() {
   const projectsArray = [];
   const addProject = (project) => {
@@ -8,8 +9,10 @@ function createProjectsArray() {
     const indexOfProject = projectsArray.indexOf(project);
     projectsArray.splice(indexOfProject, 1);
   };
-  return { projectsArray, addProject };
+  const getArray = () => projectsArray;
+  return { addProject, deleteProject, getArray };
 }
+
 function createProject(projectName, todos = []) {
   const addTodoToProject = (todo) => {
     todos.push(todo);
@@ -20,6 +23,8 @@ function createProject(projectName, todos = []) {
   };
   return { projectName, todos, addTodoToProject, deleteTodoFromProject };
 }
-
+const newProject = createProject("Bardzo wazny projekt");
+console.log(newProject);
 const projects = createProjectsArray();
-projects.addProject(createProject("Nazwa projektu"));
+projects.addProject(newProject);
+console.log(projects.getArray());

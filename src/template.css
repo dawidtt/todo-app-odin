@@ -263,10 +263,13 @@ nav button:hover {
   color: #82808f;
   background-color: transparent;
   border: none;
-  height: 40px;
   border-radius: 15px;
   transition: all 0.15s;
   width: 80%;
+  padding: 12px 16px 12px 10px;
+}
+#projects-container-top button + button {
+  margin-top: 10px;
 }
 #projects-container-top button:hover {
   cursor: pointer;
