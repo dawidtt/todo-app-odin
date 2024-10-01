@@ -1,0 +1,57 @@
+dialog.create-project-dialog {
+  border-radius: 15px;
+  border: none;
+}
+dialog.create-project-dialog form > div {
+  display: flex;
+  flex-direction: column;
+}
+dialog.create-project-dialog form > div + div {
+  margin: 20px 0;
+}
+
+dialog.create-project-dialog label {
+  margin-bottom: 5px;
+  font-size: 1.05rem;
+}
+dialog.create-project-dialog input,
+dialog.create-project-dialog textarea {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #888396;
+}
+dialog.create-project-dialog input:focus,
+dialog.create-project-dialog textarea:focus {
+  outline: 2px solid #00b884;
+  border: 1px solid transparent;
+}
+
+#create-project-submit-container {
+  flex-direction: row;
+  justify-content: space-between;
+}
+#create-project-submit-container button {
+  border-radius: 5px;
+  padding: 10px 24px;
+  transition: all 0.15s;
+  border: none;
+}
+
+#create-project-submit-container button:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+#create-project-cancel-btn {
+  background-color: #e6e5e5;
+  color: #56555c;
+}
+#create-project-cancel-btn:hover {
+  background-color: #bbbbbb;
+}
+#create-project-submit-input {
+  background-color: #00b88460;
+  color: #006347;
+}
+#create-project-submit-input:hover {
+  background-color: #00b884;
+}

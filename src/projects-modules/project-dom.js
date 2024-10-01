@@ -5,9 +5,15 @@ import { projects } from "./project-logic";
 import { switchTabs } from "../switch-tabs.js";
 import { renderNotesContainer } from "../notes-section/notes-dom.js";
 import { openModal } from "../all-todos-section/create-todo-modal.js";
+import { openProjectModal } from "./create-project-modal.js";
+export { generateMyProjects };
 export * from "./project-dom.js";
 function generateMyProjects() {
   const myPojectsPath = document.querySelector("#projects-container-top");
+  const projectCreateBtn = document.querySelector(
+    "#projects-container-bottom button"
+  );
+  projectCreateBtn.addEventListener("click", openProjectModal);
   for (let i = 0; i < projects.getArray().length; i++) {
     const buttonProject = document.createElement("button");
     buttonProject.addEventListener("click", switchTabs);
