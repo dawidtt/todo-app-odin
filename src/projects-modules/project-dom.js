@@ -7,6 +7,7 @@ import { switchTabs } from "../switch-tabs.js";
 import { renderNotesContainer } from "../notes-section/notes-dom.js";
 import { openModal } from "../all-todos-section/create-todo-modal.js";
 import { openProjectModal } from "./create-project-modal.js";
+import { deleteProject } from "./delete-project.js";
 export { generateMyProjects };
 export * from "./project-dom.js";
 function generateMyProjects() {
@@ -49,16 +50,19 @@ function showSpecificProject(project) {
 
   const bottomWrapper = document.createElement("div");
   bottomWrapper.classList.add("all-bottom-wrapper");
-  const deleteProject = document.createElement("button");
-  deleteProject.classList.add("delete-project");
-  deleteProject.textContent = "Delete Project";
+  const deleteProjectBtn = document.createElement("button");
+  deleteProjectBtn.classList.add("delete-project");
+  deleteProjectBtn.textContent = "Delete Project";
+  deleteProjectBtn.addEventListener("click", () => {
+    deleteProject(project);
+  });
   const editProject = document.createElement("button");
   editProject.classList.add("edit-project");
   editProject.textContent = "Edit Project";
 
   const leftBottomBtns = document.createElement("div");
   leftBottomBtns.classList.add("left-bottom-project-btns");
-  leftBottomBtns.appendChild(deleteProject);
+  leftBottomBtns.appendChild(deleteProjectBtn);
   leftBottomBtns.appendChild(editProject);
 
   const createTodo = document.createElement("button");

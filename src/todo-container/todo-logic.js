@@ -1,6 +1,6 @@
 import { general } from "../projects-modules/project-logic";
 
-export { todosArray, createToDo };
+export { todosArray, createToDo, removeTodo };
 let todosArray = [];
 
 function createToDo(
@@ -19,6 +19,9 @@ const exampleTodo = createToDo(
   new Date(),
   "Medium-priority"
 );
-
+function removeTodo(todo) {
+  const indexOfTodo = todosArray.indexOf(todo);
+  todosArray.splice(indexOfTodo, 1);
+}
 todosArray.push(exampleTodo);
 general.addTodoToProject(exampleTodo);
