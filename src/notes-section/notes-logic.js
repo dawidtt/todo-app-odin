@@ -10,16 +10,9 @@ function addNewNote(note) {
   notesArray.push(note);
 }
 
-const casualNote = createNoteObject("Nowa notatka", "blalalalala");
-const importantNote = createNoteObject(
-  "wazna notatka",
-  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat, reprehenderit, optio excepturi illum, est temporibus ullam quos perspiciatis recusandae aliquid in tempora soluta? Debitis excepturi modi quos voluptas libero!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat, reprehenderit, optio excepturi illum, est temporibus ullam quos perspiciatis recusandae aliquid in tempora soluta? Debitis excepturi modi quos voluptas libero!"
-);
-const notImportantNote = createNoteObject(
-  "niewazna notatka",
-  "r sit amet consectetur adipisicing elit. Hic placeat, reprehenderit, optio excepturi illum, est temporibus ulla"
+const exampleNote = createNoteObject(
+  "Example Note",
+  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat, reprehenderit, optio excepturi illum, est temporibus ullam quos perspiciatis recusandae aliquid in tempora soluta? Debitis excepturi modi quos voluptas libero!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic placeat,"
 );
 
-addNewNote(casualNote);
-addNewNote(importantNote);
-addNewNote(notImportantNote);
+addNewNote(exampleNote);

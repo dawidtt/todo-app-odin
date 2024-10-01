@@ -1,6 +1,6 @@
 import { createToDo } from "../todo-container/todo-logic";
 
-export { newProject, projects, general, createProjectsArray, createProject };
+export { projects, general, createProjectsArray, createProject };
 
 function createProjectsArray() {
   const projectsArray = [];
@@ -33,10 +33,8 @@ function createProject(projectName, todos = []) {
   };
 }
 const general = createProject("General");
-const newProject = createProject("New Project");
 const projects = createProjectsArray();
 projects.addProject(general);
-projects.addProject(newProject);
 
 // general.addTodoToProject(createToDo("cos"));
 // console.log(projects.getArray());
