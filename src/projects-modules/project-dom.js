@@ -1,3 +1,4 @@
+import "./project-dom.css";
 import { markComplete } from "../todo-container/complete.js";
 import { generateTodoContainer } from "../todo-container/generate-todo-dom.js";
 import { todosArray } from "../todo-container/todo-logic.js";
@@ -48,11 +49,23 @@ function showSpecificProject(project) {
 
   const bottomWrapper = document.createElement("div");
   bottomWrapper.classList.add("all-bottom-wrapper");
+  const deleteProject = document.createElement("button");
+  deleteProject.classList.add("delete-project");
+  deleteProject.textContent = "Delete Project";
+  const editProject = document.createElement("button");
+  editProject.classList.add("edit-project");
+  editProject.textContent = "Edit Project";
+
+  const leftBottomBtns = document.createElement("div");
+  leftBottomBtns.classList.add("left-bottom-project-btns");
+  leftBottomBtns.appendChild(deleteProject);
+  leftBottomBtns.appendChild(editProject);
+
   const createTodo = document.createElement("button");
   createTodo.textContent = "Create ToDo";
   createTodo.classList.add("create-todo");
   createTodo.addEventListener("click", openModal);
-
+  bottomWrapper.appendChild(leftBottomBtns);
   bottomWrapper.appendChild(createTodo);
   allWrapper.appendChild(projectHeading);
   allWrapper.appendChild(todosContainer);

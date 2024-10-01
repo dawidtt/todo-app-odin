@@ -1,0 +1,26 @@
+.all-bottom-wrapper:has(.left-bottom-project-btns) {
+  justify-content: space-between;
+}
+.left-bottom-project-btns {
+  display: flex;
+  gap: 20px;
+}
+
+.left-bottom-project-btns button.delete-project {
+  background-color: #f3a8a8;
+
+  color: #f80000;
+}
+.left-bottom-project-btns button.edit-project {
+  background-color: #c6c3cd;
+  color: #56555c;
+}
+.left-bottom-project-btns button.delete-project:hover {
+  background-color: #f80000;
+
+  color: #ffffff;
+}
+.left-bottom-project-btns button.edit-project:hover {
+  background-color: #56555c;
+  color: #ffffff;
+}
