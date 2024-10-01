@@ -301,3 +301,8 @@ nav button:hover {
   background-color: #5577ff;
   color: #ffffff;
 }
+#projects-container-top button.nav-section-checked {
+  cursor: pointer;
+  background-color: #7b68ee;
+  color: #ffffff;
+}
