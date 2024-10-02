@@ -142,11 +142,12 @@ function handleCreateTodoSubmit(dialog, main) {
       mainPath.innerHTML = "";
       const allTodoTabPath = document.querySelector("#all-btn");
       const todayTodoTabPath = document.querySelector("#today-btn");
-
-      if (allTodoTabPath.classList.contains("nav-section-checked")) {
-        generateAllTodos(todosArray);
-      } else if (todayTodoTabPath.classList.contains("nav-section-checked")) {
-        generateTodayTodos(todosArray);
+      const projectsBtns = document.querySelectorAll(
+        "#projects-container-top button"
+      );
+      const projectsBtnsArray = Array.from(projectsBtns);
+      for (const projectBtn of projectsBtnsArray) {
+        if (projectBtn.textContent === projectValue) projectBtn.click();
       }
     }
   });
