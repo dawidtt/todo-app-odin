@@ -25,10 +25,8 @@ function switchTabs(e) {
 
 const all = document.querySelector("#all-btn");
 const today = document.querySelector("#today-btn");
-const calendar = document.querySelector("#calendar-btn");
 all.classList.add("nav-section-checked");
 all.addEventListener("click", switchTabs);
 all.addEventListener("click", () => generateAllTodos(todosArray));
 today.addEventListener("click", switchTabs);
 today.addEventListener("click", () => generateTodayTodos(todosArray));
-calendar.addEventListener("click", switchTabs);
