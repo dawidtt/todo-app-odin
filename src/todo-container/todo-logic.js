@@ -1,5 +1,8 @@
 import { general } from "../projects-modules/project-logic";
-
+import {
+  saveTodosInLocalStorage,
+  retriveTodosFromLocalStorage,
+} from "../local-storage/local-storage";
 export { todosArray, createToDo, removeTodo };
 let todosArray = [];
 
@@ -23,5 +26,10 @@ function removeTodo(todo) {
   const indexOfTodo = todosArray.indexOf(todo);
   todosArray.splice(indexOfTodo, 1);
 }
-todosArray.push(exampleTodo);
-general.addTodoToProject(exampleTodo);
+if (localStorage.getItem("todosArray")) {
+  retriveTodosFromLocalStorage();
+} else {
+  todosArray.push(exampleTodo);
+  general.addTodoToProject(exampleTodo);
+  saveTodosInLocalStorage();
+}

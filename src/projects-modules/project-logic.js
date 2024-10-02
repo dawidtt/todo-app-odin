@@ -1,3 +1,4 @@
+import { saveProjectsInLocalStorage } from "../local-storage/local-storage";
 import { createToDo } from "../todo-container/todo-logic";
 
 export { projects, general, createProjectsArray, createProject };
@@ -40,6 +41,6 @@ function createProject(projectName, todos = []) {
 const general = createProject("General");
 const projects = createProjectsArray();
 projects.addProject(general);
-
+saveProjectsInLocalStorage();
 // general.addTodoToProject(createToDo("cos"));
 // console.log(projects.getArray());
