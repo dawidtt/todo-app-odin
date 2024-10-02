@@ -50,20 +50,22 @@ function showSpecificProject(project) {
 
   const bottomWrapper = document.createElement("div");
   bottomWrapper.classList.add("all-bottom-wrapper");
-  const deleteProjectBtn = document.createElement("button");
-  deleteProjectBtn.classList.add("delete-project");
-  deleteProjectBtn.textContent = "Delete Project";
-  deleteProjectBtn.addEventListener("click", () => {
-    deleteProject(project);
-  });
-  const editProject = document.createElement("button");
-  editProject.classList.add("edit-project");
-  editProject.textContent = "Edit Project";
-
   const leftBottomBtns = document.createElement("div");
   leftBottomBtns.classList.add("left-bottom-project-btns");
-  leftBottomBtns.appendChild(deleteProjectBtn);
-  leftBottomBtns.appendChild(editProject);
+
+  if (project.projectName !== "General") {
+    const deleteProjectBtn = document.createElement("button");
+    deleteProjectBtn.classList.add("delete-project");
+    deleteProjectBtn.textContent = "Delete Project";
+    deleteProjectBtn.addEventListener("click", () => {
+      deleteProject(project);
+    });
+    const editProject = document.createElement("button");
+    editProject.classList.add("edit-project");
+    editProject.textContent = "Edit Project";
+    leftBottomBtns.appendChild(deleteProjectBtn);
+    leftBottomBtns.appendChild(editProject);
+  }
 
   const createTodo = document.createElement("button");
   createTodo.textContent = "Create ToDo";
