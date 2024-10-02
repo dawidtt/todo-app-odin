@@ -1,4 +1,4 @@
-// import "./edit-project-modal.css";
+import "./edit-project.css";
 import { projects, createProjectsArray } from "./project-logic";
 import { todosArray } from "../todo-container/todo-logic";
 import { generateAllTodos } from "../all-todos-section/all-todos-dom";
