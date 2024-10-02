@@ -62,5 +62,12 @@ function handleCreateProjectSubmit(dialog, main) {
       }
       generateMyProjects();
     }
+    const projectBtns = document.querySelectorAll(
+      "#projects-container-top button"
+    );
+    const projectBtnsArray = Array.from(projectBtns);
+    for (const projectBtn of projectBtnsArray) {
+      if (projectBtn.textContent === titleValue) projectBtn.click();
+    }
   });
 }

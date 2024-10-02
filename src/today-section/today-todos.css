@@ -2,7 +2,7 @@ main {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr auto;
-  background-color: #49cdf918;
+  background-color: #e3f8ff;
 }
 .all-wrapper {
   grid-row: 1 / 2;
