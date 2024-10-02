@@ -8,6 +8,7 @@ import { renderNotesContainer } from "../notes-section/notes-dom.js";
 import { openModal } from "../all-todos-section/create-todo-modal.js";
 import { openProjectModal } from "./create-project-modal.js";
 import { deleteProject } from "./delete-project.js";
+import { openEditProject } from "./edit-project.js";
 export { generateMyProjects };
 export * from "./project-dom.js";
 function generateMyProjects() {
@@ -31,6 +32,7 @@ function generateMyProjects() {
 generateMyProjects();
 
 function showSpecificProject(project) {
+  console.log("dziala");
   const mainPath = document.querySelector("main");
   const allWrapper = document.createElement("div");
   allWrapper.classList.add("all-wrapper");
@@ -42,11 +44,15 @@ function showSpecificProject(project) {
   const todosContainer = document.createElement("div");
   todosContainer.classList.add("todos-container");
   for (let i = 0; i < todosArray.length; i++) {
+    console.log(todosArray);
     if (todosArray[i].project === project.projectName) {
       const todoContainer = generateTodoContainer(todosArray[i], i);
       todosContainer.appendChild(todoContainer);
     }
   }
+  console.log(todosContainer);
+
+  console.log(projectHeading);
 
   const bottomWrapper = document.createElement("div");
   bottomWrapper.classList.add("all-bottom-wrapper");
@@ -63,6 +69,7 @@ function showSpecificProject(project) {
     const editProject = document.createElement("button");
     editProject.classList.add("edit-project");
     editProject.textContent = "Edit Project";
+    editProject.addEventListener("click", openEditProject);
     leftBottomBtns.appendChild(deleteProjectBtn);
     leftBottomBtns.appendChild(editProject);
   }

@@ -12,8 +12,12 @@ function createProjectsArray() {
     projectsArray.splice(indexOfProject, 1);
   };
   const getArray = () => projectsArray;
+  const changeName = (project, newName) => {
+    const indexOfProject = projectsArray.indexOf(project);
+    projectsArray[indexOfProject].projectName = newName;
+  };
 
-  return { addProject, deleteProject, getArray };
+  return { addProject, deleteProject, getArray, changeName };
 }
 
 function createProject(projectName, todos = []) {
@@ -25,6 +29,7 @@ function createProject(projectName, todos = []) {
     todos.splice(indexOfTodo, 1);
   };
   const getTodosArray = () => todos;
+
   return {
     projectName,
     getTodosArray,
