@@ -15,7 +15,7 @@ dialog fieldset {
   flex-direction: column;
   gap: 8px;
   border-radius: 5px;
-  border: 1px solid #c6c3cd;
+  border: 1px solid #888396;
 }
 dialog fieldset legend {
   font-size: 1.05rem;
@@ -30,8 +30,16 @@ dialog textarea {
   padding: 5px;
   border: 1px solid #888396;
 }
+#project-select {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #888396;
+
+  background-color: transparent;
+}
 dialog input:focus,
-dialog textarea:focus {
+dialog textarea:focus,
+#project-select:focus {
   outline: 2px solid #f74092;
   border: 1px solid transparent;
 }
