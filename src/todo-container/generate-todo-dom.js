@@ -44,8 +44,11 @@ function generateTodoContainer(todoObject, position) {
   dueDateContainer.classList.add("due-date-container");
 
   const dueDateText = document.createElement("p");
+  console.log(todoObject);
   console.log(dueDate);
-  dueDateText.textContent = format(dueDate, "PPP");
+  console.log(new Date(dueDate));
+  console.log("halo");
+  dueDateText.textContent = format(new Date(dueDate), "PPP");
 
   dueDateContainer.appendChild(dueDateText);
 
@@ -86,6 +89,6 @@ function generateTodoContainer(todoObject, position) {
   todoContainer.appendChild(rightTodoContainer);
   todoContainer.appendChild(descriptionContainer);
   todoContainer.appendChild(midTodoContainer);
-
+  console.log(todoContainer);
   return todoContainer;
 }

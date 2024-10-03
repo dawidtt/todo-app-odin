@@ -27,7 +27,8 @@ function removeTodo(todo) {
   todosArray.splice(indexOfTodo, 1);
 }
 if (localStorage.getItem("todosArray")) {
-  retriveTodosFromLocalStorage();
+  todosArray = retriveTodosFromLocalStorage();
+  console.log(todosArray);
 } else {
   todosArray.push(exampleTodo);
   general.addTodoToProject(exampleTodo);

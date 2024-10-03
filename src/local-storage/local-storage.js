@@ -12,7 +12,7 @@ function saveTodosInLocalStorage() {
     const year = todo.dueDate.getFullYear();
     const month = todo.dueDate.getMonth();
     const day = todo.dueDate.getDay();
-    const dateToSwitch = [year, month + 1, day];
+    const dateToSwitch = todo.dueDate.getTime();
     console.log(dateToSwitch);
     todo.dueDate = dateToSwitch;
   }
@@ -24,18 +24,15 @@ function retriveTodosFromLocalStorage() {
 
   const retrivedTodosArray = JSON.parse(localStorage.getItem("todosArray"));
   for (const todo of retrivedTodosArray) {
-    const dateToSwitch = new Date(
-      todo.dueDate[0],
-      todo.dueDate[1],
-      todo.dueDate[2]
-    );
+    const dateToSwitch = new Date(todo.dueDate);
+
     console.log(dateToSwitch);
-    todo.dueDate = dateToSwitch;
+    console.log(new Date());
+
+    console.log(typeof todo.dueDate);
   }
-  console.log(retrivedTodosArray);
-  todosArray.splice(0, todosArray.length);
-  todosArray.push(retrivedTodosArray);
-  console.log(todosArray);
+
+  return retrivedTodosArray;
 }
 function saveProjectsInLocalStorage() {
   localStorage.setItem("projects", JSON.stringify(projects.getArray()));
