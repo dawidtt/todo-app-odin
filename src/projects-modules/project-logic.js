@@ -1,10 +1,13 @@
-import { saveProjectsInLocalStorage } from "../local-storage/local-storage";
+import {
+  retriveProjectsFromLocalStorage,
+  saveProjectsInLocalStorage,
+} from "../local-storage/local-storage";
 import { createToDo } from "../todo-container/todo-logic";
 
 export { projects, general, createProjectsArray, createProject };
 
 function createProjectsArray() {
-  const projectsArray = [];
+  let projectsArray = [];
   const addProject = (project) => {
     projectsArray.push(project);
   };
@@ -18,7 +21,11 @@ function createProjectsArray() {
     projectsArray[indexOfProject].projectName = newName;
   };
 
-  return { addProject, deleteProject, getArray, changeName };
+  const updateArray = (updatedArray) => {
+    projectsArray = updatedArray;
+  };
+
+  return { addProject, deleteProject, getArray, changeName, updateArray };
 }
 
 function createProject(projectName, todos = []) {
@@ -38,9 +45,18 @@ function createProject(projectName, todos = []) {
     deleteTodoFromProject,
   };
 }
-const general = createProject("General");
+
 const projects = createProjectsArray();
+const general = createProject("General");
+
 projects.addProject(general);
-saveProjectsInLocalStorage();
+
+if (localStorage.getItem("projects")) {
+  projects.updateArray(retriveProjectsFromLocalStorage());
+  console.log("o co b");
+  console.log(projects.getArray()[0]);
+} else {
+  saveProjectsInLocalStorage();
+}
 // general.addTodoToProject(createToDo("cos"));
 // console.log(projects.getArray());

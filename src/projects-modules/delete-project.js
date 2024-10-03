@@ -28,7 +28,9 @@ function deleteProject(project) {
   });
   deleteConfirmBtn.addEventListener("click", (e) => {
     e.preventDefault();
-
+    console.log("dziala?");
+    console.log(project.getTodosArray());
+    console.log(project);
     const allProjectTodos = project.getTodosArray();
     for (const todo of allProjectTodos) {
       removeTodo(todo);

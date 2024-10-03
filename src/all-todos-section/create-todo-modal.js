@@ -111,7 +111,6 @@ function handleCreateTodoSubmit(dialog, main) {
     const dueDateValue = document.querySelector(
       "#create-todo-date-input"
     ).value;
-    console.log(dueDateValue);
     const formattedDueDate = new Date(dueDateValue).getTime();
 
     let priorityValue;
@@ -127,7 +126,6 @@ function handleCreateTodoSubmit(dialog, main) {
       .getAttribute("position");
 
     if (titleValue !== "") {
-      console.log(formattedDueDate);
       e.preventDefault();
       const newTodo = createToDo(
         titleValue,
@@ -136,10 +134,9 @@ function handleCreateTodoSubmit(dialog, main) {
         priorityValue,
         projectValue
       );
-      console.log(formattedDueDate);
       todosArray.push(newTodo);
       saveTodosInLocalStorage();
-
+      console.log(projects.getArray());
       projects.getArray()[projectPosition].addTodoToProject(newTodo);
       dialog.close();
       main.removeChild(dialog);
