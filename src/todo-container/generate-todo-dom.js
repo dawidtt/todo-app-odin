@@ -44,7 +44,9 @@ function generateTodoContainer(todoObject, position) {
   dueDateContainer.classList.add("due-date-container");
 
   const dueDateText = document.createElement("p");
+  console.log(dueDate);
   dueDateText.textContent = format(dueDate, "PPP");
+
   dueDateContainer.appendChild(dueDateText);
 
   const priorityContainer = document.createElement("div");
