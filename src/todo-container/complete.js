@@ -1,6 +1,7 @@
 import { expandTodo } from "./expand-todo";
 import "./complete.css";
 import { todosArray } from "./todo-logic";
+import { saveTodosInLocalStorage } from "../local-storage/local-storage";
 
 export { markComplete };
 
@@ -27,6 +28,7 @@ function markComplete(position) {
       expandTodo(position);
     }
     todosArray[position].completed = true;
+    saveTodosInLocalStorage();
     completeContainer.classList.add("completed-container");
     currentHeading.classList.add("completed");
 

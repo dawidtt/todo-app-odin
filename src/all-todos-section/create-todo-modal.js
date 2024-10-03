@@ -9,6 +9,7 @@ import {
   projects,
   createProject,
 } from "../projects-modules/project-logic";
+import { saveTodosInLocalStorage } from "../local-storage/local-storage";
 function createTodoModal() {
   const dialog = document.createElement("dialog");
   dialog.classList.add("create-todo-dialog");
@@ -110,7 +111,8 @@ function handleCreateTodoSubmit(dialog, main) {
     const dueDateValue = document.querySelector(
       "#create-todo-date-input"
     ).value;
-    const formattedDueDate = new Date(dueDateValue);
+    console.log(dueDateValue);
+    const formattedDueDate = new Date(dueDateValue).getTime();
 
     let priorityValue;
     const radios = document.getElementsByName("priority");
@@ -125,6 +127,7 @@ function handleCreateTodoSubmit(dialog, main) {
       .getAttribute("position");
 
     if (titleValue !== "") {
+      console.log(formattedDueDate);
       e.preventDefault();
       const newTodo = createToDo(
         titleValue,
@@ -133,7 +136,9 @@ function handleCreateTodoSubmit(dialog, main) {
         priorityValue,
         projectValue
       );
+      console.log(formattedDueDate);
       todosArray.push(newTodo);
+      saveTodosInLocalStorage();
 
       projects.getArray()[projectPosition].addTodoToProject(newTodo);
       dialog.close();

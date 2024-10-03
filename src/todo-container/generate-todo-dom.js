@@ -47,7 +47,6 @@ function generateTodoContainer(todoObject, position) {
   console.log(todoObject);
   console.log(dueDate);
   console.log(new Date(dueDate));
-  console.log("halo");
   dueDateText.textContent = format(new Date(dueDate), "PPP");
 
   dueDateContainer.appendChild(dueDateText);

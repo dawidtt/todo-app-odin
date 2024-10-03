@@ -2,6 +2,7 @@ import { generateAllTodos } from "../all-todos-section/all-todos-dom";
 import { todosArray } from "./todo-logic";
 import { format } from "date-fns";
 import "./edit-todo-modal.css";
+import { saveTodosInLocalStorage } from "../local-storage/local-storage";
 export { editTodo };
 
 function editTodo(e) {
@@ -71,7 +72,7 @@ function handleEditTodoSubmit(dialog, main, position) {
       "#edit-todo-description-input"
     ).value;
     const dueDateValue = document.querySelector("#edit-todo-date-input").value;
-    const formattedDueDate = new Date(dueDateValue);
+    const formattedDueDate = new Date(dueDateValue).getTime();
 
     let priorityValue;
     const radios = document.getElementsByName("priority");
@@ -87,6 +88,7 @@ function handleEditTodoSubmit(dialog, main, position) {
       todosArray[position].description = descriptionValue;
       todosArray[position].dueDate = formattedDueDate;
       todosArray[position].priority = priorityValue;
+      saveTodosInLocalStorage();
 
       dialog.close();
       main.removeChild(dialog);
