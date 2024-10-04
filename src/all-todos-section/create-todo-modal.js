@@ -136,7 +136,6 @@ function handleCreateTodoSubmit(dialog, main) {
       );
       todosArray.push(newTodo);
       saveTodosInLocalStorage();
-      console.log(projects.getArray());
       projects.getArray()[projectPosition].addTodoToProject(newTodo);
       dialog.close();
       main.removeChild(dialog);

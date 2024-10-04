@@ -3,6 +3,10 @@ import { projects, createProjectsArray } from "./project-logic";
 import { todosArray } from "../todo-container/todo-logic";
 import { generateAllTodos } from "../all-todos-section/all-todos-dom";
 import { generateMyProjects } from "./project-dom";
+import {
+  saveProjectsInLocalStorage,
+  saveTodosInLocalStorage,
+} from "../local-storage/local-storage";
 export { openEditProject };
 
 function editProjectModal() {
@@ -75,6 +79,8 @@ function handleEditProjectSubmit(dialog, main) {
           todosArray[i].project = titleValue;
         }
       }
+      saveProjectsInLocalStorage();
+      saveTodosInLocalStorage();
 
       dialog.close();
       main.removeChild(dialog);

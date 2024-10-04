@@ -20,7 +20,6 @@ function switchTabs(e) {
   }
   mainPath.innerHTML = "";
   e.srcElement.classList.add("nav-section-checked");
-  console.log("halo");
 }
 
 const all = document.querySelector("#all-btn");

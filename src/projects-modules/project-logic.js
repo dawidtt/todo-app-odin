@@ -53,8 +53,6 @@ projects.addProject(general);
 
 if (localStorage.getItem("projects")) {
   projects.updateArray(retriveProjectsFromLocalStorage());
-  console.log("o co b");
-  console.log(projects.getArray()[0]);
 } else {
   saveProjectsInLocalStorage();
 }

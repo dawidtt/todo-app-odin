@@ -2,7 +2,10 @@ import { generateAllTodos } from "../all-todos-section/all-todos-dom";
 import { todosArray } from "./todo-logic";
 import { format } from "date-fns";
 import "./edit-todo-modal.css";
-import { saveTodosInLocalStorage } from "../local-storage/local-storage";
+import {
+  saveProjectsInLocalStorage,
+  saveTodosInLocalStorage,
+} from "../local-storage/local-storage";
 export { editTodo };
 
 function editTodo(e) {
@@ -19,7 +22,6 @@ function editTodo(e) {
     "#edit-todo-description-input"
   );
   descriptionInput.value = description;
-  console.log(descriptionInput.value);
 
   const lowPriorityRadio = document.querySelector(
     "#edit-todo-low-priority-input"
@@ -30,7 +32,6 @@ function editTodo(e) {
   const highPriorityRadio = document.querySelector(
     "#edit-todo-high-priority-input"
   );
-  console.log(priority);
   if (priority === "Low-priority") lowPriorityRadio.checked = true;
   else if (priority === "Medium-priority") mediumPriorityRadio.checked = true;
   else if (priority === "High-priority") highPriorityRadio.checked = true;
@@ -44,7 +45,6 @@ function setCurrentAndMinDateValue() {
   const yyyy = format(today, "yyyy");
   const fullToday = `${yyyy}-${mm}-${dd}`;
 
-  console.log(fullToday);
   dateInput.setAttribute("min", fullToday);
 
   dateInput.valueAsDate = new Date();
@@ -88,13 +88,22 @@ function handleEditTodoSubmit(dialog, main, position) {
       todosArray[position].description = descriptionValue;
       todosArray[position].dueDate = formattedDueDate;
       todosArray[position].priority = priorityValue;
+      saveProjectsInLocalStorage();
       saveTodosInLocalStorage();
 
       dialog.close();
       main.removeChild(dialog);
       const mainPath = document.querySelector("main");
       mainPath.innerHTML = "";
-      generateAllTodos(todosArray);
+      const projectsBtns = document.querySelectorAll(
+        "#projects-container-top button"
+      );
+      const selectProject = todosArray[position].project;
+
+      const projectsBtnsArray = Array.from(projectsBtns);
+      for (const projectBtn of projectsBtnsArray) {
+        if (projectBtn.textContent === selectProject) projectBtn.click();
+      }
     }
   });
 }

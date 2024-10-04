@@ -3,7 +3,10 @@ import { projects, createProjectsArray, createProject } from "./project-logic";
 import { todosArray } from "../todo-container/todo-logic";
 import { generateAllTodos } from "../all-todos-section/all-todos-dom";
 import { generateMyProjects } from "./project-dom";
-import { saveProjectsInLocalStorage } from "../local-storage/local-storage";
+import {
+  saveProjectsInLocalStorage,
+  saveTodosInLocalStorage,
+} from "../local-storage/local-storage";
 export { openProjectModal };
 
 function createProjectModal() {
@@ -54,6 +57,7 @@ function handleCreateProjectSubmit(dialog, main) {
 
       projects.addProject(createProject(titleValue));
       saveProjectsInLocalStorage();
+      saveTodosInLocalStorage();
 
       dialog.close();
       main.removeChild(dialog);

@@ -1,6 +1,10 @@
 import { createProject, projects } from "./project-logic";
-import { removeTodo } from "../todo-container/todo-logic";
+import { removeTodo, todosArray } from "../todo-container/todo-logic";
 import { generateMyProjects } from "./project-dom";
+import {
+  saveProjectsInLocalStorage,
+  saveTodosInLocalStorage,
+} from "../local-storage/local-storage";
 export { deleteProject };
 function deleteProject(project) {
   const mainPath = document.querySelector("main");
@@ -28,12 +32,14 @@ function deleteProject(project) {
   });
   deleteConfirmBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log("dziala?");
-    console.log(project.getTodosArray());
-    console.log(project);
+
     const allProjectTodos = project.getTodosArray();
     for (const todo of allProjectTodos) {
       removeTodo(todo);
+      project.deleteTodoFromProject(todo);
+
+      console.log(todo);
+      console.log(todosArray);
     }
     projects.deleteProject(project);
     const allTodos = document.querySelector("#all-btn");
@@ -43,5 +49,7 @@ function deleteProject(project) {
       projectsPath.removeChild(projectsPath.lastChild);
     }
     generateMyProjects();
+    saveProjectsInLocalStorage();
+    saveTodosInLocalStorage();
   });
 }

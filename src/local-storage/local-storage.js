@@ -24,17 +24,29 @@ function retriveTodosFromLocalStorage() {
   return retrivedTodosArray;
 }
 function saveProjectsInLocalStorage() {
-  const projectArrayToSave = projects.getArray();
+  const data = projects.getArray().map((project) => ({
+    projectName: project.projectName,
+    todos: project.getTodosArray(),
+  }));
 
-  localStorage.setItem("projects", JSON.stringify(projectArrayToSave));
+  localStorage.setItem("projects", JSON.stringify(data));
 }
 function retriveProjectsFromLocalStorage() {
-  const retrivedProjectsArray = JSON.parse(localStorage.getItem("projects"));
-  for (let project of retrivedProjectsArray) {
-    project = createProject(project.projectName, project.todos);
-    console.log(project.getTodosArray());
-  }
-  console.log("!!!!");
-  console.log(retrivedProjectsArray);
-  return retrivedProjectsArray;
+  const data = JSON.parse(localStorage.getItem("projects"));
+  return data.map((storedProject) => {
+    const project = createProject(
+      storedProject.projectName,
+      storedProject.todos
+    );
+    return project;
+  });
+
+  // const retrivedProjectsArray = JSON.parse(localStorage.getItem("projects"));
+  // for (let project of retrivedProjectsArray) {
+  //   project = createProject(project.projectName, project.todos);
+  //   console.log(project.getTodosArray());
+  // }
+  // console.log("!!!!");
+  // console.log(retrivedProjectsArray);
+  // return retrivedProjectsArray;
 }

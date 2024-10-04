@@ -11,9 +11,6 @@ export function expandTodo(numberInNodeArray) {
   const todosContainersArray = Array.from(todosContainers);
   const todosDescriptionArray = Array.from(todosDescription);
   const todosSwtichIconArray = Array.from(todosSwtichIcon);
-  console.log(todosContainersArray);
-  console.log(numberInNodeArray);
-  console.log(todosContainers);
 
   // todosContainersArray[numberInNodeArray].classList.toggle("open");
   // todosDescriptionArray[numberInNodeArray].classList.toggle("open");
