@@ -1,8 +1,9 @@
 import "./create-note-modal.css";
-import { addNewNote, createNoteObject } from "./notes-logic";
+import { addNewNote, createNoteObject, notesArray } from "./notes-logic";
 import { renderNotesContainer } from "./notes-dom";
 import { todosArray } from "../todo-container/todo-logic";
 import { generateAllTodos } from "../all-todos-section/all-todos-dom";
+import { saveNotesInLocalStorage } from "../local-storage/local-storage";
 export { openNoteModal };
 
 function createNoteModal() {
@@ -57,6 +58,7 @@ function handleCreatenoteSubmit(dialog, main) {
       e.preventDefault();
 
       addNewNote(createNoteObject(titleValue, descriptionValue));
+      saveNotesInLocalStorage(notesArray);
 
       dialog.close();
       main.removeChild(dialog);

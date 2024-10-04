@@ -3,6 +3,7 @@ import { addNewNote, editNoteObject, notesArray } from "./notes-logic";
 import { renderNotesContainer } from "./notes-dom";
 import { todosArray } from "../todo-container/todo-logic";
 import { generateAllTodos } from "../all-todos-section/all-todos-dom";
+import { saveNotesInLocalStorage } from "../local-storage/local-storage";
 export { openNoteEditModal };
 
 function editNoteModal() {
@@ -63,6 +64,7 @@ function handleeditnoteSubmit(dialog, main, position) {
 
       notesArray[position].title = titleValue;
       notesArray[position].description = descriptionValue;
+      saveNotesInLocalStorage(notesArray);
 
       dialog.close();
       main.removeChild(dialog);

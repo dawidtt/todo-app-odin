@@ -1,11 +1,14 @@
 import { todosArray } from "../todo-container/todo-logic";
 import { createProject, projects } from "../projects-modules/project-logic";
 import { format } from "date-fns";
+import { notesArray } from "../notes-section/notes-logic";
 export {
   saveTodosInLocalStorage,
   retriveTodosFromLocalStorage,
   saveProjectsInLocalStorage,
   retriveProjectsFromLocalStorage,
+  saveNotesInLocalStorage,
+  retriveNotesFromLocalStorage,
 };
 function saveTodosInLocalStorage() {
   localStorage.setItem("todosArray", JSON.stringify(todosArray));
@@ -49,4 +52,10 @@ function retriveProjectsFromLocalStorage() {
   // console.log("!!!!");
   // console.log(retrivedProjectsArray);
   // return retrivedProjectsArray;
+}
+function saveNotesInLocalStorage(notesArray) {
+  localStorage.setItem("notesArray", JSON.stringify(notesArray));
+}
+function retriveNotesFromLocalStorage() {
+  return JSON.parse(localStorage.getItem("notesArray"));
 }

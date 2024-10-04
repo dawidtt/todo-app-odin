@@ -1,4 +1,5 @@
 import { generateAllTodos } from "../all-todos-section/all-todos-dom";
+import { saveNotesInLocalStorage } from "../local-storage/local-storage";
 import { todosArray } from "../todo-container/todo-logic";
 import "./delete-note.css";
 import { renderNotesContainer } from "./notes-dom";
@@ -37,6 +38,7 @@ function deleteNote(e) {
   deleteConfirmBtn.addEventListener("click", () => {
     e.preventDefault();
     notesArray.splice(deleteButtonPosition, 1);
+    saveNotesInLocalStorage(notesArray);
 
     newDialog.close();
     mainPath.removeChild(newDialog);
